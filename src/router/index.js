@@ -10,6 +10,7 @@ export const routes = [
     },
     {
         path: '/login',
+        layout: Home,
         component: Login
     }
 ]

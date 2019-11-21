@@ -1,11 +1,12 @@
 const path = require('path');
+const paths = require('./paths');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: ["./src/main.js"],
     output: {
         // 输出目录
-        path: path.resolve(__dirname, "..", "dist"),
+        path: paths.appBuild,
         // 文件名称
         filename: "bundle.js"
     },
@@ -51,17 +52,17 @@ module.exports = {
     resolve: {
         extensions: [".js", ".jsx"],
         alias: {
-            "@": path.resolve(__dirname, "..", "src"),
-            pages: path.resolve(__dirname, "..", "src/pages"),
-            router: path.resolve(__dirname, "..", "src/router")
+            "@": paths.appSrc,
+            pages: paths.appPages,
+            router: paths.appRouter
         }
     },
     plugins:[
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename: "index.html",
-            template: path.resolve(__dirname, '..', './public/index.html'),
-            // favicon: path.resolve('favicon.ico')
+            template: paths.appHtml,
+            favicon: paths.appFavicon
         }),
     ]
 }

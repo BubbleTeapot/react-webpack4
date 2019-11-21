@@ -1,4 +1,5 @@
 const path = require("path");
+const paths = require("./paths");
 const merge = require('webpack-merge')
 const commonConfig = require('./webpack.base.conf.js')
 
@@ -7,7 +8,7 @@ module.exports = merge(commonConfig, {
     devtool:"cheap-module-source-map",   // 线上生成配置
     output: {
         // 输出目录
-        path: path.resolve(__dirname, "..", "dist"),
+        path: paths.appBuild,
         // 文件名称
         filename: '[name].[contenthash].js',
         chunkFilename: '[name].[contenthash].js'

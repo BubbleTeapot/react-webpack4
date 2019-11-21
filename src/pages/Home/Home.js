@@ -8,6 +8,7 @@ export default class Home extends Component {
             <div className="title">
                 Home
                 <Link to={`/login`}>go to login</Link>
+                {this.props.children}
             </div>
         )
     }

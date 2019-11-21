@@ -1,4 +1,5 @@
 const path = require("path");
+const paths = require("./paths");
 const merge = require('webpack-merge')
 const commonConfig = require('./webpack.base.conf.js')
 const webpack = require("webpack");
@@ -9,7 +10,7 @@ module.exports = merge(commonConfig, {
     devtool:"cheap-module-eval-source-map",// 开发环境配置
     output: {
         // 输出目录
-        path: path.resolve(__dirname, "..", "dist"),
+        path: paths.appBuild,
         // 文件名称
         filename: "bundle.js",
         chunkFilename: '[name].js'
@@ -25,7 +26,7 @@ module.exports = merge(commonConfig, {
     ],
     devServer: {
         hot: true,
-        contentBase: path.resolve(__dirname, "..", "public"),
+        contentBase: paths.appPublic,
         host: "0.0.0.0",
         port: 8080,
         // historyApiFallback: {disableDotRule: true},  // 该项目配置此属性无效（原因未知）

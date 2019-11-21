@@ -3,6 +3,10 @@ import { BrowserRouter, HashRouter } from 'react-router-dom';
 import {Switch, Route, Redirect } from 'react-router';
 import {routes} from 'router';
 
+/**
+ * 配合this.props.children使用,避免每次都引入同一组件
+ * @param {*} routes 
+ */
 function getRouterByRoutes(routes){
   const renderedRoutesList = [];
   const renderRoutes = (routes)=>{
@@ -25,7 +29,7 @@ function getRouterByRoutes(routes){
       }
     });
   }
-  renderRoutes(routes)
+  renderRoutes(routes);
   return renderedRoutesList;
  
 }
