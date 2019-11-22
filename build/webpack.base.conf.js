@@ -5,10 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: ["./src/main.js"],
     output: {
-        // 输出目录
-        path: paths.appBuild,
         // 文件名称
-        filename: "bundle.js"
+        filename: "static/js/bundle.js"
     },
     module:{
         rules: [
@@ -53,16 +51,20 @@ module.exports = {
         extensions: [".js", ".jsx"],
         alias: {
             "@": paths.appSrc,
-            pages: paths.appPages,
-            router: paths.appRouter
+            "pages": paths.appPages,
+            "router": paths.appRouter
         }
     },
     plugins:[
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
+            inject: true,   //scrpit注入位置[true：默认值，script标签位于html文件的 body 底部； body：script标签位于html文件的 body 底部（同 true；） head：script 标签位于 head 标签内； false：不插入生成的 js 文件，只是单纯的生成一个 html 文件
             filename: "index.html",
             template: paths.appHtml,
-            favicon: paths.appFavicon
+            favicon: paths.appFavicon,
+            minify: {
+                collapseWhitespace: true // 去除空白
+            }
         }),
     ]
 }

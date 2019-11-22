@@ -1,9 +1,9 @@
 {
-  "name": "HelloReact",
+  "name": "react-webpack4",
   "version": "1.0.0",
-  "description": "",
+  "description": "react webpack redux axios router",
   "scripts": {
-    "start": "webpack-dev-server --config build/webpack.base.conf.js",
+    "start": "webpack-dev-server --config build/webpack.dev.conf.js",
     "build": "webpack --config build/webpack.prod.conf.js"
   },
   "keywords": [],
@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "axios": "^0.19.0",
     "cross-fetch": "^3.0.4",
     "react": "^16.10.0",
     "react-dom": "^16.10.0",

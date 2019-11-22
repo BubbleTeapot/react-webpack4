@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import {Switch, Route, Redirect } from 'react-router';
 import {routes} from 'router';
 
@@ -36,11 +36,11 @@ function getRouterByRoutes(routes){
 class App extends React.PureComponent{
   render(){
     return (
-      <HashRouter>
+      <BrowserRouter>
         <Switch>
           {getRouterByRoutes(routes)}
         </Switch>
-      </HashRouter>
+      </BrowserRouter>
     )
   }
 }

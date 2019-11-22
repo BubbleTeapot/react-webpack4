@@ -10,8 +10,8 @@ module.exports = merge(commonConfig, {
         // 输出目录
         path: paths.appBuild,
         // 文件名称
-        filename: '[name].[contenthash].js',
-        chunkFilename: '[name].[contenthash].js'
+        filename: 'static/js/[name].[contenthash].js',
+        chunkFilename: 'static/js/[name].[contenthash].js'
     },
     plugins: [],
     optimization: {
