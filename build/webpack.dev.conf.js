@@ -25,7 +25,7 @@ module.exports = merge(commonConfig, {
         hot: true,
         contentBase: paths.appPublic,
         host: "localhost",
-        port: 8080,
+        port: 9000,
         hotOnly:true,   // 当编译失败时，不刷新页面
         compress: true, //是否启用gzip压缩
         historyApiFallback: {

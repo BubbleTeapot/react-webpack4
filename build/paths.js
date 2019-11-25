@@ -14,4 +14,5 @@ module.exports = {
     appBuild: resolveApp('dist'),
     appHtml: resolveApp('public/index.html'),
     appFavicon: resolveApp('public/favicon.ico'),
+    appStyles: resolveApp('src/styles')
 }

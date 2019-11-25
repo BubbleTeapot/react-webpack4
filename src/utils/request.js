@@ -19,7 +19,14 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
     response => {
         isShowLoading(false);
-        return response;
+        if(response.status === 200) {
+            let data = response.data
+            if(data.code === 10) {
+                console.warn("未知错误!");
+            }else {
+                return data.data;
+            }
+        }
     },
     error => {
         isShowLoading(false);

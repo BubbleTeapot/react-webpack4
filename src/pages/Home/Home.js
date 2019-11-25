@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
-import './Home.less';
+import 'styles/Home.less';
 
 export default class Home extends Component {
     render() {

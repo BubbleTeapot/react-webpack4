@@ -52,7 +52,8 @@ module.exports = {
         alias: {
             "@": paths.appSrc,
             "pages": paths.appPages,
-            "router": paths.appRouter
+            "router": paths.appRouter,
+            "styles": paths.appStyles
         }
     },
     plugins:[
