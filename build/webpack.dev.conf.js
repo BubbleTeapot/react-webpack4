@@ -2,6 +2,7 @@ const paths = require("./paths");
 const merge = require('webpack-merge');
 const commonConfig = require('./webpack.base.conf.js');
 const webpack = require("webpack");
+const PreloadPlugin = require('preload-webpack-plugin');
 
 module.exports = merge(commonConfig, {
     mode: "development",
@@ -123,6 +124,22 @@ module.exports = merge(commonConfig, {
                 'process.env': {
                     NODE_ENV: '"development"',
                 }
+            }
+        ),
+        new PreloadPlugin( //优先加载的资源
+            {
+              rel: 'preload',
+              include: 'initial',
+              fileBlacklist: [ 
+                /\.map$/,
+                /hot-update\.js$/
+              ]
+            }
+        ),
+        new PreloadPlugin( //需要预加载的资源
+            {
+              rel: 'prefetch',
+              include: 'asyncChunks'
             }
         ),
     ],

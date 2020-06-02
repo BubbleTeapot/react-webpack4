@@ -5,9 +5,10 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require("webpack");
 const PreloadPlugin = require('preload-webpack-plugin');
 const commonConfig = require('./webpack.base.conf.js');
+const CopyPlugin = require('copy-webpack-plugin');
+const webpack = require("webpack");
 
 module.exports = merge(commonConfig, {
     mode: "production",
@@ -215,5 +216,21 @@ module.exports = merge(commonConfig, {
               include: 'asyncChunks'
             }
         ),
+        //复制文件
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: paths.appPublic,
+                    to: paths.appBuild,
+                    toType: 'dir',
+                    globOptions: {
+                        ignore: [
+                            'statics/**/*',
+                            'mock/**/*',
+                        ]
+                    }
+                }
+            ]
+        })
     ],
 })

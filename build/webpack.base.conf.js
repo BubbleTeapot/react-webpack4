@@ -3,8 +3,6 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const PreloadPlugin = require('preload-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: "./src/index.js", //入口文件
     output: {
@@ -123,22 +121,6 @@ module.exports = {
             filename: 'index.html',
             template: paths.appHtml
         }),
-        //复制文件
-        new CopyPlugin({
-            patterns: [
-                {
-                    from: paths.appPublic,
-                    to: paths.appBuild,
-                    toType: 'dir',
-                    globOptions: {
-                        ignore: [
-                            'statics/**/*',
-                            'mock/**/*',
-                        ]
-                    }
-                }
-            ]
-        })
     ],
     /* 分包处理 */
     optimization: {
