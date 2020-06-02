@@ -1,0 +1,13 @@
+{
+    "code": 0,
+    "msg": "success",
+    "data": [
+        {"url": "./statics/imgs/1_1080.jpg"},
+        {"url": "./statics/imgs/2_1080.jpg"},
+        {"url": "./statics/imgs/3_1080.jpg"},
+        {"url": "./statics/imgs/4_1080.jpg"},
+        {"url": "./statics/imgs/5_1080.jpg"},
+        {"url": "./statics/imgs/6_1080.jpg"},
+        {"url": "./statics/imgs/7_1080.jpg"}
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "modules": false //去掉export后没有import的部分
+            }
+        ]
+        ,
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        ["@babel/plugin-transform-runtime", {
+          "corejs": 3
+        }],
+        [
+          "import",
+          {
+            "libraryName": "antd",
+            "libraryDirectory": "es",
+            "style": "css" // `style: true` 会加载 less 文件
+          }
+        ],
+        "@babel/plugin-transform-arrow-functions",
+        "@babel/plugin-proposal-class-properties",
+    ]
+}
