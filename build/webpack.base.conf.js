@@ -52,7 +52,7 @@ module.exports = {
                             fallback: {
                                 loader: 'file-loader',
                                 options: {
-                                name: 'asset/media/[name].[hash:8].[ext]'
+                                    name: 'asset/media/[name].[hash:8].[ext]'
                                 }
                             }
                         }
