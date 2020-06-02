@@ -1,7 +1,7 @@
 # react-webpack4
 使用react和webpack4以及常用react插件组成的脚手架
 
-一键搭建react开发环境（包括react-router、redux、antd、axios）
+一键搭建react高性能开发环境（包括react-router、redux、antd、axios）
 ## 使用方式
 
 ```javascript
@@ -88,6 +88,8 @@ minimizer启用js压缩（TerserPlugin）采用多线程压缩，并开启缓存
 - 使用thread-loader将项目js文件处理操作放在单独的线程处理
 
 - 路由按需加载
+
+- 将页面初始化必须的资源优先加载，对将要用到的资源进行预加载
 
 ## 打包发布
 

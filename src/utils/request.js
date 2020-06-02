@@ -1,7 +1,10 @@
 import axios from 'axios';
+import {isShowLoading} from './loading';
 
+const baseURL = "http://localhost";
 const instance = axios.create({
-    timeout: 3000
+    baseURL,
+    timeout: 10000
 });
 // 请求拦截期
 instance.interceptors.request.use(
@@ -35,16 +38,12 @@ instance.interceptors.response.use(
     }
 )
 
-// 加载动画
-function isShowLoading() {
-
-}
 class request {
-    static get(params,show) {
+    static get(params, show = false) {
         isShowLoading(show);
         return instance.get(params.url, params.data)
     }
-    static post(params,show) {
+    static post(params, show = false) {
         isShowLoading(show);
         return instance.post(params.url, params.data)
     }

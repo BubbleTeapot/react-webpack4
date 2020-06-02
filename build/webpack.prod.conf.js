@@ -9,6 +9,7 @@ const PreloadPlugin = require('preload-webpack-plugin');
 const commonConfig = require('./webpack.base.conf.js');
 const CopyPlugin = require('copy-webpack-plugin');
 const webpack = require("webpack");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(commonConfig, {
     mode: "production",
@@ -231,6 +232,13 @@ module.exports = merge(commonConfig, {
                     }
                 }
             ]
+        }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'disabled', //在disabled模式下，您可以使用设置generateStatsFile为，使用此插件仅生成Webpack Stats JSON文件true
+            generateStatsFile: true, //正式打包需要关闭生成json文件
+            statsOptions: {
+                source: false
+            }
         })
     ],
 })
